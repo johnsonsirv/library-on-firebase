@@ -1,13 +1,4 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-undef */
+const myLibrary = new Library();
 
-const render = () => {
-  // renderst html rows containing each book object
-};
-
-const addBookToLibrary = () => {
-  // add book to library
-};
-
-const removeBookFromLibrary = (book) => {
-  // remove a book from library
-};
