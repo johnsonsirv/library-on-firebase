@@ -2,16 +2,22 @@
 function Library() {
   this.arr = [];
 }
-Library.prototype.constructor = Library;
-Library.prototype.books = () => this.arr;
-Library.prototype.addBook = (author, title, pages, readStatus) => {
-  // eslint-disable-next-line no-undef
-  const book = new Book(author, title, pages, readStatus);
-  this.arr.push(book);
+Library.prototype = {
+  constructor: Library,
+  books() {
+    return this.arr;
+  },
+  emptyLibrary() {
+    return this.arr.length === 0;
+  },
+  addBook(author, title, pages, readStatus) {
+    // eslint-disable-next-line no-undef
+    const book = new Book(author, title, pages, readStatus);
+    this.arr.push(book);
+    return book;
+  },
+  removeBook(bookStore, bookIndex) {
+    bookStore.splice(bookIndex, 1);
+    return bookStore;
+  },
 };
-
-Library.prototype.removeBook = (bookStore, bookIndex) => {
-  bookStore.splice(bookIndex, 1);
-  return bookStore;
-};
-Library.prototype.empty = () => this.books().length === 0;

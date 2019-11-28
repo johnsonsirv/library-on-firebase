@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Library</title>
+  <link rel="stylesheet" href="./assets/stylesheets/book.css">
 </head>
 <body>
   <header>
@@ -21,13 +22,14 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody id="">
+      <tbody id="book-section">
   
       </tbody>
     </table>
   </section>
+    <button id="add-new-book">New Book</button>
   <section>
-    <form action="" id="add-book-form" class="no-display">
+    <form action="" id="add-book-form">
       <div>
         <label for="title">Title</label>
         <input type="text" id="title">
@@ -48,9 +50,13 @@
         </select>
       </div>
       <div>
-        <input type="submit" id="submit" value="Add new book">
+        <input type="submit" id="submit" value="Save">
       </div>
     </form>
   </section>
+  <script src="./assets/javascript/book.js"></script>
+  <script src="./assets/javascript/library.js"></script>
+  <script src="./assets/javascript/helper.js"></script>
+  <script src="./assets/javascript/app.js"></script>
 </body>
 </html>

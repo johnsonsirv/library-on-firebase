@@ -2,23 +2,23 @@
 /* eslint-disable no-undef */
 const invokeToggleListener = (handle, book, bookIndex) => {
   handle.addEventListener('click', () => {
-    book.toggleRead();
+    book.updateReadStatus();
     const newStatus = book.readStatus ? 'Read' : 'Unread';
-    document.getElementById(`book-status-${bookIndex}`).innerText = newStatus;
+    document.getElementById(`book-status-${bookIndex}`).innerHTML = newStatus;
   });
 };
 const invokeDeleteListener = (handle, bookIndex, library, rowItem) => {
   handle.addEventListener('click', () => {
     const bookStore = library.books();
     library.removeBook(bookStore, bookIndex);
-    row.parentElement.removeChild(rowItem);
+    rowItem.parentElement.removeChild(rowItem);
   });
 };
 
 const renderEachBook = (library, book, bookIndex, bookSection) => {
   const tr = document.createElement('tr');
   tr.setAttribute('id', `book-${bookIndex}`);
-  const readStatus = book.readStatus ? 'Unread' : 'Read';
+  const readStatus = book.readStatus ? 'Read' : 'Unread';
   tr.innerHTML = `<td>${book.title}</td>
                 <td>${book.author}</td>
                 <td>${book.pages}</td>
@@ -31,7 +31,7 @@ const renderEachBook = (library, book, bookIndex, bookSection) => {
                    Delete
                   </button>
                 </td>`;
-  bookSection.appendChild();
+  bookSection.appendChild(tr);
   // toggle button listener
   invokeToggleListener(document.getElementById(`toggle-read-${bookIndex}`), book, bookIndex);
   // delete button listener
@@ -46,8 +46,8 @@ const render = (library) => {
 };
 const prepareDOMToRenderLibrary = (library) => {
   // if library is empty create new book
-  if (library.empty()) {
-    library.addBook('Test Author', 'Test title', 2, true);
+  if (library.emptyLibrary()) {
+    library.addBook('Test Author', 'Test title', 2, false);
   }
   document.getElementById('book-section').innerHTML = '';
   document.getElementById('add-book-form').setAttribute('class', 'no-display');
@@ -63,7 +63,7 @@ const bookParams = () => {
   const author = document.getElementById('author').value;
   const title = document.getElementById('title').value;
   const pages = document.getElementById('pages').value;
-  const readStatus = document.getElementById('read-status').value;
+  const readStatus = document.getElementById('read-status').value === 'true';
 
   return [author, title, pages, readStatus];
 };
