@@ -6,7 +6,7 @@ Library.prototype.constructor = Library;
 Library.prototype.books = () => this.arr;
 Library.prototype.addBook = (author, title, pages, readStatus) => {
   // eslint-disable-next-line no-undef
-  const book = new Book(author, title, pages, pages, readStatus);
+  const book = new Book(author, title, pages, readStatus);
   this.arr.push(book);
 };
 
@@ -14,3 +14,4 @@ Library.prototype.removeBook = (bookStore, bookIndex) => {
   bookStore.splice(bookIndex, 1);
   return bookStore;
 };
+Library.prototype.empty = () => this.books().length === 0;

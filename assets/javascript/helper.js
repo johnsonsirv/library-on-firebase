@@ -45,6 +45,10 @@ const render = (library) => {
   });
 };
 const prepareDOMToRenderLibrary = (library) => {
+  // if library is empty create new book
+  if (library.empty()) {
+    library.addBook('Test Author', 'Test title', 2, true);
+  }
   document.getElementById('book-section').innerHTML = '';
   document.getElementById('add-book-form').setAttribute('class', 'no-display');
   render(library);
