@@ -15,22 +15,6 @@ const invokeDeleteListener = (handle, bookIndex, library, rowItem) => {
   });
 };
 
-const bookParams = () => {
-  const author = document.getElementById('author').value;
-  const title = document.getElementById('title').value;
-  const pages = document.getElementById('pages').value;
-  const readStatus = document.getElementById('read-status').value;
-
-  return [author, title, pages, readStatus];
-};
-const submitForm = (library) => {
-  library.addBook(...bookParams());
-  // call method to show it on the html view
-};
-
-const render = () => {
-  // renders html rows containing each book object
-};
 const renderEachBook = (library, book, bookIndex, bookSection) => {
   const tr = document.createElement('tr');
   tr.setAttribute('id', `book-${bookIndex}`);
@@ -54,8 +38,37 @@ const renderEachBook = (library, book, bookIndex, bookSection) => {
   invokeDeleteListener(document.getElementById(`remove-book-${bookIndex}`), bookIndex, library, tr);
 };
 
-const addToLocalStorage = (book) => {
+const render = (library) => {
+  const bookSection = document.getElementById('book-section');
+  library.books().forEach((book, bookIndex) => {
+    renderEachBook(library, book, bookIndex, bookSection);
+  });
+};
+const prepareDOMToRenderLibrary = (library) => {
+  document.getElementById('book-section').innerHTML = '';
+  document.getElementById('add-book-form').setAttribute('class', 'no-display');
+  render(library);
+};
 
+const displayHTMLForm = () => {
+  const form = document.getElementById('add-book-form');
+  form.reset();
+  form.removeAttribute('class');
+};
+const bookParams = () => {
+  const author = document.getElementById('author').value;
+  const title = document.getElementById('title').value;
+  const pages = document.getElementById('pages').value;
+  const readStatus = document.getElementById('read-status').value;
+
+  return [author, title, pages, readStatus];
+};
+const submitForm = (library) => {
+  library.addBook(...bookParams());
+  prepareDOMToRenderLibrary(library);
+};
+
+const addToLocalStorage = (book) => {
 };
 const fetchDataFromLocalStorage = () => {
 
