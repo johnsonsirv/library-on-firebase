@@ -52,6 +52,7 @@ const prepareDOMToRenderLibrary = (library) => {
   render(library);
 };
 
+// eslint-disable-next-line no-unused-vars
 const displayHTMLForm = () => {
   const form = document.getElementById('add-book-form');
   form.reset();
@@ -65,20 +66,8 @@ const bookParams = () => {
 
   return [author, title, pages, readStatus];
 };
+// eslint-disable-next-line no-unused-vars
 const submitForm = (library) => {
   library.addBook(...bookParams());
   prepareDOMToRenderLibrary(library);
-};
-
-const persistToLocalStorage = (book) => {
-
-};
-const fetchDataFromLocalStorage = () => {
-
-};
-const addToFirebase = (book) => {
-
-};
-const fetchDataFromFirebase = () => {
-
 };
