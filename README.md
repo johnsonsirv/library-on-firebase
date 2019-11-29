@@ -1,5 +1,5 @@
 # Book Library
-This project implements **Javascript** concepts such as constructor functions and prototypes to build a simple [Book Library App](https://raw.githack.com/johnsonsirv/library-on-firebase/app-logic/index.html) that stores data using an array.
+This project implements vanilla **Javascript** concepts such as constructor functions and prototypes to build a simple [Book Library App](https://raw.githack.com/johnsonsirv/library-on-firebase/app-logic/index.html) that stores data using an array.
 
 This project was completed in line with standards provided by [Microverse](https://www.microverse.org/ "The Global School for Remote Software Developers!").
 
@@ -7,11 +7,11 @@ This project was completed in line with standards provided by [Microverse](https
 
 1. The ``User`` can add new book to library. The default read/unread status of a new book is ```Unread```
 
-2. A ``User`` can change the ``status`` of a book after they have read it.
+2. The ``User`` can change the ``status`` of a book after they have read it.
 
 3. The ``User`` can remove a book from their library.
 
-**All books are cleared when the page reloads. Only the default book is added to the list**
+**All books are cleared when the page reloads. Only the default book will be persisted in the library.**
 
 
 ## See Demo
@@ -36,7 +36,7 @@ $ git clone https://github.com/johnsonsirv/library-on-firebase.git
 ```sh
 $ cd library-on-firebase
 ```
-
+> Open the index.html using your favourite browser
 
 ## How to contribute
 1. Fork it (https://github.com/johnsonsirv/library-on-firebase/fork)
