@@ -25,16 +25,14 @@ const renderEachBook = (library, book, bookIndex, bookSection) => {
                 <td id="book-status-${bookIndex}">${readStatus}</td>
                 <td>
                   <button id="toggle-read-${bookIndex}">
-                    Toggle Read Status
+                    Toggle Status
                   </button> | 
                   <button id="remove-book-${bookIndex}">
                    Delete
                   </button>
                 </td>`;
   bookSection.appendChild(tr);
-  // toggle button listener
   invokeToggleListener(document.getElementById(`toggle-read-${bookIndex}`), book, bookIndex);
-  // delete button listener
   invokeDeleteListener(document.getElementById(`remove-book-${bookIndex}`), bookIndex, library, tr);
 };
 
@@ -47,7 +45,7 @@ const render = (library) => {
 const prepareDOMToRenderLibrary = (library) => {
   // if library is empty create new book
   if (library.emptyLibrary()) {
-    library.addBook('Test Author', 'Test title', 2, false);
+    library.addBook('Robert Kiyosaki', 'Rich Dad Poor Dad', 300);
   }
   document.getElementById('book-section').innerHTML = '';
   document.getElementById('add-book-form').setAttribute('class', 'no-display');
@@ -72,7 +70,8 @@ const submitForm = (library) => {
   prepareDOMToRenderLibrary(library);
 };
 
-const addToLocalStorage = (book) => {
+const persistToLocalStorage = (book) => {
+
 };
 const fetchDataFromLocalStorage = () => {
 

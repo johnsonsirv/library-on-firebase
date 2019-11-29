@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-function Book(author, title, pages, readStatus) {
+function Book(author, title, pages, readStatus = false) {
   this.author = author;
   this.title = title;
   this.pages = pages;
